@@ -26,6 +26,13 @@ analiza sentimiento y organiza todo en proyectos colaborativos, directamente des
 > Para una vista ampliada: [context.png](docs/diagrams/context.png)
 
 ---
+---
+
+## Diagrama de datos
+
+![Diagrama de arquitectura](docs/diagrams/bd.jpg)
+
+---
 
 ## Características clave
 
