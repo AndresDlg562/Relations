@@ -9,6 +9,14 @@ analiza sentimiento y organiza todo en proyectos colaborativos, directamente des
 
 ---
 
+## Repositorios
+
+[Backend](https://github.com/david1opez/relations-data-api)
+[Frontend](https://github.com/david1opez/relations-web)
+
+
+---
+
 ## Diagrama de arquitectura de alto nivel
 
 ![Diagrama de arquitectura](docs/diagrams/context.png)
