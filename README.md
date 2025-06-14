@@ -43,7 +43,7 @@ cd relations-web
 npm install    # o pnpm/yarn
 
 # 3. Arranca localmente
-npm dev        # Frontend en http://localhost:3000
+npm run dev        # Frontend en http://localhost:3000
 ````
 
 Para la **API** replica los pasos en `/relations-data-api` (requiere `DATABASE_URL` a PostgreSQL).
@@ -60,7 +60,7 @@ Para la **API** replica los pasos en `/relations-data-api` (requiere `DATABASE_U
 |            | `MSFT_CLIENT_ID` / `MSFT_CLIENT_SECRET` / `MSFT_OBJECT_ID` | OAuth & permisos Graph       |
 |            | `MSFT_REDIRECT_URL`                                        | Callback del servidor        |
 | Ambos      | `AWS_ANALYSIS_URL` / `AWS_TRANSCRIBE_URL`                  | Endpoints de API Gateway     |
-| (Future)   | `OPENAI_API_KEY`                                           | Solo si se habilita Whisper  |
+|            | `OPENAI_API_KEY`                                           | Capítulos, Whisper si en uso |
 
 > En desarrollo basta un archivo `.env`; en producción se configuran en **Vercel Dashboard**
 > (Proyecto → Settings → Environment Variables).
@@ -81,10 +81,10 @@ Para la **API** replica los pasos en `/relations-data-api` (requiere `DATABASE_U
 
 | Comando          | Descripción                                  |
 | ---------------- | -------------------------------------------- |
-| `npm dev`       | Ejecuta Next.js con Turbopack                |
-| `npm build`     | Build producción Front                       |
-| `npm lint`      | ESLint + Type checking                       |
-| `npm test` (API) | Ejecuta suite Jest                           |
+| `npm run dev`       | Ejecuta Next.js con Turbopack                |
+| `npm run build`     | Build producción Front                       |
+| `npm run lint`      | ESLint + Type checking                       |
+| `npm run test` (API) | Ejecuta suite Jest                           |
 | `vercel --prod`  | Despliega manualmente a Vercel (Front o API) |
 
 *Pipelines de GitHub Actions* despliegan automáticamente el Front; el API
