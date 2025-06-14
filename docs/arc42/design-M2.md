@@ -47,6 +47,7 @@
 | ------------------- | ------------------------------------------------------ | ------------ |
 | **Tecnológica**     | Next.js 15.2.4 + React 19, Node.js 22.14.0             | ADR-001      |
 |                     | Prisma 6.9 + PostgreSQL 15                             | ADR-002      |
+|                     | Express.js para API REST                                | Implementación |
 |                     | MongoDB Atlas (sentimientos/chaptering)                | ADR-005      |
 | **Infraestructura** | Vercel Hobby (frontend y API), región *iad1-edge*      | Panel Vercel |
 |                     | AWS API Gateway + Lambdas (us-east-2), cuota free-tier | AWS Console  |
@@ -132,16 +133,49 @@ Ver diagrama de contexto.
 
 Ver diagrama `technology-mapping.png` en `docs/diagrams/`.
 
+### 5.4 Modelo de datos
+
+![Diagrama de arquitectura](../diagrams/bd.jpg)
+
 ---
 
 ## 6. Vista de ejecución
 
 Flujos principales documentados gráficamente en `docs/diagrams/`:
 
+### 6.1 Flujo de solicitud API
+
+### 6.2 Flujos principales documentados
+
 1. Login vía OAuth
 2. Crear proyecto y llamada
 3. Registrar actividad
 4. Generar reporte
+
+### 6.3 Endpoints de la API
+
+#### Endpoints de Proyectos
+- `GET /projects` - Recuperar todos los proyectos
+- `GET /projects/members-count` - Obtener estadísticas de conteo de miembros
+- `GET /projects/:id/members-count` - Obtener conteo de miembros de proyecto específico
+- `GET /user-projects` - Obtener proyectos del usuario autenticado
+- `GET /projects/:id` - Obtener proyecto por ID
+- `GET /projects/:id/users` - Obtener usuarios del proyecto
+- `POST /projects` - Crear nuevo proyecto
+- `PATCH /projects/:id` - Actualizar proyecto
+- `DELETE /projects/:id` - Eliminar proyecto
+- `PATCH /projects/:id/users` - Actualizar asignaciones de usuarios del proyecto
+
+#### Endpoints de Llamadas
+- `GET /calls?projectID=1234` - Obtener llamadas para un proyecto
+- `GET /details?callID=1234` - Obtener detalles de llamada
+- `DELETE /delete?callID=1234` - Eliminar llamada
+- `PATCH /markAnalyzed` - Marcar llamada como analizada
+- `POST /add` - Crear nueva llamada con participantes
+- `GET /history?projectID=1234&interval=daily|weekly|monthly&userID=1234` - Obtener historial de llamadas
+
+#### Endpoints de Usuarios
+- `GET /users` - Obt
 
 ---
 
